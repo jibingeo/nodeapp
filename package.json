@@ -1,0 +1,24 @@
+{
+  "name": "goodbox-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-watch --only src ../src/index.js",
+    "build": "babel --ignore node_modules,lib ./src -d dist",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js'"
+  },
+  "author": "Jibin George",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-plugin-transform-async-to-generator": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-watch": "https://github.com/jibingeo/babel-watch",
+    "prettier": "^0.22.0"
+  }
+}
