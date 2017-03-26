@@ -6,7 +6,7 @@
   "scripts": {
     "start": "babel-watch --only src ../src/index.js",
     "build": "babel --ignore node_modules,lib ./src -d dist",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js'"
+    "precommit": "lint-staged"
   },
   "author": "Jibin George",
   "license": "ISC",
@@ -19,6 +19,14 @@
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-watch": "https://github.com/jibingeo/babel-watch",
+    "husky": "^0.13.3",
+    "lint-staged": "^3.4.0",
     "prettier": "^0.22.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --trailing-comma es5 --single-quote --write",
+      "git add"
+    ]
   }
 }
