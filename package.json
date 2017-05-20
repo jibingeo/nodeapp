@@ -4,29 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-watch --only src ../src/index.js",
-    "build": "babel --ignore node_modules,lib ./src -d dist",
-    "precommit": "lint-staged"
+    "watch": "babel src --watch --out-dir dist",
+    "start": "node .",
+    "build": "babel src --out-dir dist",
+    "test-prettier": "prettier-check --single-quote --trailing-comma es5 src/**/*.js",
+    "test": "npm run test-prettier"
   },
   "author": "Jibin George",
   "license": "ISC",
   "dependencies": {
-    "babel-cli": "^6.24.0",
-    "babel-plugin-transform-async-to-generator": "^6.22.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "^6.24.0"
+    "express": "^4.15.3"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.24.0",
-    "babel-watch": "https://github.com/jibingeo/babel-watch",
-    "husky": "^0.13.3",
-    "lint-staged": "^3.4.0",
-    "prettier": "^0.22.0"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --trailing-comma es5 --single-quote --write",
-      "git add"
-    ]
+    "babel-plugin-transform-async-to-generator": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "chokidar": "^1.7.0",
+    "prettier": "^1.3.1",
+    "prettier-check": "^1.0.0"
   }
 }
