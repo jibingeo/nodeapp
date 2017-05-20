@@ -8,14 +8,14 @@ let wrap = fn => (...args) => fn(...args).catch(args[2]);
 router.get(
   '*',
   wrap(async (req, res) => {
-    let data = await new Promise((resolve, reject) => {
-      setTimeout(resolve.bind(null, 'Hello'), 1000);
+    res.json({
+      status: 0,
+      data: {},
     });
-    throw new Error('Hello');
-    res.send(data);
   })
 );
 
+// Error handling
 router.use(function(err, req, res, next) {
   let status = typeof err.status == 'number' ? err.status : 500;
   let message = err.message || 'Internal Server Error';
@@ -23,7 +23,8 @@ router.use(function(err, req, res, next) {
   res.format({
     default: () => res.send(message),
     html: () => res.send(message),
-    json: () => res.status(status).json({
+    json: () =>
+      res.status(status).json({
         status,
         message,
       }),
