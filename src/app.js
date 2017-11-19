@@ -1,17 +1,23 @@
 import express from 'express';
+import { NotFound } from 'http-errors';
+
+import { wrap } from './utils';
 
 const router = express.Router();
 
-//Wrapper to catch exception
-let wrap = fn => (...args) => fn(...args).catch(args[2]);
+router.get(
+  '/ping',
+  wrap(async (req, res) => {
+    res.json({
+      hello: 100,
+    });
+  })
+);
 
 router.get(
   '*',
-  wrap(async (req, res) => {
-    res.json({
-      status: 0,
-      data: {},
-    });
+  wrap(async () => {
+    throw new NotFound();
   })
 );
 
