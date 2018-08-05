@@ -2,7 +2,40 @@ import express from 'express';
 import { NotFound } from 'http-errors';
 import rescue from 'express-rescue';
 
+const wait  = () => new Promise(function (resolve, reject) {
+	setTimeout(function () {
+		resolve();
+	}, 500); // Wait 3s then resolve.
+});
+
 const app = express();
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+app.locals.rmWhitespace = true;
+// app.locals.compileDebug = true;
+
+app.get(
+	'/',
+	rescue(async (req, res) => {
+		// await wait();
+		res.render('index', {
+			title: 'ti-',
+			message: 'message'
+		}, {compileDebug: true});
+	})
+);
+
+app.get(
+	'/home',
+	rescue(async (req, res) => {
+		// await wai  t();
+		res.render('home', {
+			title: 'title---',
+			message: 'message'
+		});
+	})
+);
 
 app.get(
 	'/ping',

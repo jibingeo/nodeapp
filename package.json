@@ -4,19 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js --exec babel-node",
-    "start": "node ./dist",
-    "build": "del dist && babel src --out-dir dist",
+    "start:dev": "nodemon src/index.js --exec babel-node",
+    "start": "yarn build && node ./dist",
+    "build": "del dist && babel src --out-dir dist && copy ./src/views/**/* ./dist/views/",
     "test-prettier": "prettier-check --single-quote --trailing-comma es5 src/**/*.js",
     "test": "npm run test-prettier"
   },
   "author": "Jibin George",
   "license": "ISC",
   "dependencies": {
+    "copy": "^0.3.2",
     "del-cli": "^1.1.0",
+    "ejs": "^2.6.1",
     "express": "^4.15.3",
     "express-rescue": "^1.0.11",
-    "http-errors": "^1.6.2"
+    "http-errors": "^1.6.2",
+    "yarn": "^1.9.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
