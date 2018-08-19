@@ -15,10 +15,6 @@
   "dependencies": {
     "copy": "^0.3.2",
     "del-cli": "^1.1.0",
-    "ejs": "^2.6.1",
-    "express": "^4.15.3",
-    "express-rescue": "^1.0.11",
-    "http-errors": "^1.6.2",
     "yarn": "^1.9.4"
   },
   "devDependencies": {
