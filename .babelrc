@@ -1,6 +1,10 @@
 {
   "plugins": [
-    "transform-async-to-generator",
-    "transform-es2015-modules-commonjs"
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-async-generator-functions",
+    "@babel/plugin-transform-modules-commonjs"
+  ],
+  "presets": [
+    "@babel/preset-env"
   ]
 }
