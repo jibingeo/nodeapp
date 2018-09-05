@@ -2,9 +2,10 @@
   "name": "node-app",
   "version": "1.0.0",
   "description": "nodejs starter app",
+  "main": "./dist",
   "scripts": {
     "start": "nodemon src/index.js --exec babel-node",
-    "start:prod": "node ./dist",
+    "start:prod": "node .",
     "build": "yarn clean && babel src --out-dir dist",
     "clean": "del dist"
   },
